@@ -19,4 +19,4 @@ for image in images:
     image.save('output/' + 'multi_' + str(i) + '.jpg', 'JPEG')
     i = i + 1
 
-print("Done!")
+print("Done! Your results in 'output' folder.")
