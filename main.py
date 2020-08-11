@@ -13,10 +13,10 @@ for image in images:
     image.save('output/sample1.png', 'PNG')
 """
 
-images = convert_from_path('input/file_multi.pdf', poppler_path='poppler/bin')
+images = convert_from_path('input/file_multi.pdf', dpi=700,  poppler_path='poppler/bin')
 i = 1
 for image in images:
-    image.save('output/' + 'multi_' + str(i) + '.jpg', 'JPEG')
+    image.save('output/' + 'multi_' + str(i) + '.tiff', 'TIFF')
     i = i + 1
 
 print("Done! Your results in 'output' folder.")
