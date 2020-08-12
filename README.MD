@@ -12,8 +12,6 @@
    Run: install.bat
 ### Run app:
    Run: main.bat
-   Check  your 'output' folder.
-
 
 
      
