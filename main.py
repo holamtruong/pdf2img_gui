@@ -75,7 +75,7 @@ window = Tk()
 # Set window title
 window.title('PDF to IMAGE')
 # Set window size
-window.geometry("370x185")
+window.geometry("370x200")
 
 # Set root variable
 window.path_file_pdf = 'None'
@@ -131,7 +131,7 @@ combo_type.grid(column=1, row=4)
 
 button_run.grid(column=1, row=5, pady=5)
 button_about.grid(column=2, row=5)
-button_exit.grid(column=2, row=5)
+button_exit.grid(column=2, row=6)
 
 label_author.grid(column=0, row=6)
 label_app_status.grid(column=1, row=6)
