@@ -1,8 +1,6 @@
 from pathlib import Path
 
-import tempfile
-
-import sys
+from tkinter import messagebox
 
 # import all components
 from tkinter import *
@@ -16,9 +14,10 @@ from tkinter import filedialog
 from pdf2image import convert_from_path
 
 
-# Function for opening the
-# file explorer window
+# Function definitions
+
 def browseFiles():
+    label_app_status.configure(text="")
     input_path = filedialog.askopenfilename(initialdir="/",
                                             title="Select a File",
                                             filetypes=(("PDF files",
@@ -33,6 +32,7 @@ def browseFiles():
 
 
 def browseFolder():
+    label_app_status.configure(text="")
     folder_name = filedialog.askdirectory()
     # Change label contents
     label_output_path.configure(text=folder_name)
@@ -40,7 +40,6 @@ def browseFolder():
     window.path_output_folder = folder_name
 
 
-# Function for cover pdf to image
 def pdf2img():
     if window.path_file_pdf == 'None' or len(window.path_file_pdf) == 0:
         label_input_path.configure(text="Please choice your file!")
@@ -61,10 +60,14 @@ def pdf2img():
         for image in images:
             image.save(window.path_output_folder + '/' + window.file_name + '_' + str(i) + '.' + value_type)
             i = i + 1
-        label_app_status.configure(text="Successful!")
+        label_app_status.configure(text="Successful, " + str(len(images)) + " pages.")
 
         # Stop run
         print('Done!')
+
+
+def msg_about():
+    messagebox.showinfo("About", "Author: Truong Ho \nEmail: truong360@gmail.com")
 
 
 # Create the root window
@@ -72,70 +75,40 @@ window = Tk()
 # Set window title
 window.title('PDF to IMAGE')
 # Set window size
-window.geometry("320x175")
+window.geometry("330x190")
 
 # Set root variable
 window.path_file_pdf = 'None'
 window.path_output_folder = 'None'
 window.file_name = 'None'
 
-# Create widgets
+# Create UI widgets
 
-label_app_status = Label(window,
-                         text='Welcome!',
-                         fg="green",
-                         height=2)
-label_input = Label(window,
-                    text="Input:")
+label_input = Label(window, text="Input:")
+label_input_path = Label(window, text="Select your PDF file", width=30, relief="groove", fg="blue")
+button_browse_input = Button(window, text="Browse", command=browseFiles)
 
-label_input_path = Label(window,
-                         text="Select your PDF file",
-                         width=30,
-                         relief="groove",
-                         fg="blue")
+label_output = Label(window, text="Output:")
+label_output_path = Label(window, text="Select your output folder", width=30, relief="groove", fg="blue")
+button_browse_output = Button(window, text="Browse", command=browseFolder)
 
-button_browse_input = Button(window,
-                             text="Browse",
-                             command=browseFiles)
+button_run = Button(window, text="Run", padx=30, pady=10, command=pdf2img)
+button_about = Button(window, text="About", padx=10, pady=5, command=msg_about)
+button_exit = Button(window, text="Exit", padx=17, pady=5, command=exit)
 
-label_output = Label(window,
-                     text="Output:")
-
-label_output_path = Label(window,
-                          text="Select your output folder",
-                          width=30,
-                          relief="groove",
-                          fg="blue")
-
-button_browse_output = Button(window,
-                              text="Browse",
-                              command=browseFolder)
-
-button_run = Button(window,
-                    text="Run",
-                    padx=30,
-                    pady=10,
-                    command=pdf2img)
-
-button_exit = Button(window,
-                     text="Exit",
-                     padx=10,
-                     pady=10,
-                     command=exit)
-
-label_type = Label(window,
-                   text="Type: ")
+label_type = Label(window, text="Type: ")
 combo_type = Combobox(window)
 combo_type['values'] = ('jpeg', 'png', 'tiff', 'bmp')
 combo_type.current(1)  # set the selected item
 
-label_dpi = Label(window,
-                  text="DPI: ")
+label_dpi = Label(window, text="DPI: ")
 combo = Combobox(window)
 combo['values'] = (100, 200, 300, 400, 500, 700, 1000)
 combo.current(1)  # set the selected item
 
-# Grid layout
+label_app_status = Label(window, text='Welcome!', fg="green")
+
+# Grid layout setting
 label_input.grid(column=0, row=0)
 label_input_path.grid(column=1, row=0)
 
@@ -151,9 +124,9 @@ combo.grid(column=1, row=2)
 label_type.grid(column=0, row=3)
 combo_type.grid(column=1, row=3)
 
-button_run.grid(column=1, row=4, padx=3, pady=3)
-
-button_exit.grid(column=2, row=4)
+button_run.grid(column=1, row=4, pady=5)
+button_about.grid(column=2, row=4)
+button_exit.grid(column=2, row=5)
 
 label_app_status.grid(column=1, row=5)
 
