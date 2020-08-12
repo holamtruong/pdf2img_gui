@@ -7,8 +7,8 @@
 ## How to run
 ### Input file
    Set up in 'input' folder.
-### Run python file:
-    main.py
+### Run app:
+    main.bat
    Check 'output' folder.
 
 
