@@ -8,11 +8,11 @@
     venv\Scripts\active.bat
     
 ## How to run
-### Input file
-   Set up in 'input' folder.
+### Install environment:
+   Run: install.bat
 ### Run app:
-    main.bat
-   Check 'output' folder.
+   Run: main.bat
+   Check  your 'output' folder.
 
 
 
