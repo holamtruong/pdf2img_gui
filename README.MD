@@ -1,5 +1,5 @@
 ## Set up environment
-### Install virtual environment:
+### Create virtual environment:
     python -m venv venv
 ### Activate virtual environment (windows):
     venv\Scripts\active.bat
