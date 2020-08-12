@@ -1,5 +1,5 @@
 # PDF to IMAGE TOOL
-![](https://raw.githubusercontent.com/holamtruong/pdf2img_gui/master/screen.png?token=AEERSI3IB7ZP2TGGJW2NG727GPVFY)
+![](https://raw.githubusercontent.com/holamtruong/pdf2img_gui/master/screen.png?token=AEERSI4Q7MOU4JZNJR5EKH27GQCQU)
 
 ## Set up environment
 ### Create virtual environment:
