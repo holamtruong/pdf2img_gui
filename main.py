@@ -75,7 +75,7 @@ window = Tk()
 # Set window title
 window.title('PDF to IMAGE')
 # Set window size
-window.geometry("370x250")
+window.geometry("370x185")
 
 # Set root variable
 window.path_file_pdf = 'None'
@@ -84,9 +84,7 @@ window.file_name = 'None'
 
 # Create UI widgets
 
-canvas = Canvas(window, width=120, height=60)
-img = PhotoImage(file="media\panel.png")
-canvas.create_image(20, 0, anchor=NW, image=img)
+canvas = Canvas(window, width=50, height=10)
 
 label_input = Label(window, text="Input:")
 label_input_path = Label(window, text="Select your PDF file", width=30, relief="groove", fg="gray")
@@ -115,7 +113,7 @@ label_app_status = Label(window, text='Welcome!', fg="green")
 
 # Grid layout setting
 
-canvas.grid(column=1, row=0, padx=5, pady=5)
+canvas.grid(column=1, row=0)
 
 label_input.grid(column=0, row=1)
 label_input_path.grid(column=1, row=1)
