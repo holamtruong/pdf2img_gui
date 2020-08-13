@@ -1,4 +1,5 @@
-# PDF TO IMAGE TOOL (version 1.0)
+# PDF TO IMAGE TOOL
+Version 1.0
 ![](https://github.com/holamtruong/pdf2img_gui/blob/master/screen.png?raw=true)
 
 ## Set up environment
